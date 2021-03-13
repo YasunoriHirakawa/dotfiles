@@ -1,3 +1,12 @@
+rm -rf ~/.bashrc
+ln -s ~/dotfiles/bashrc ~/.bashrc
+
+sudo rm -rf /etc/inputrc
+sudo ln -s ~/dotfiles/inputrc /etc/inputrc
+
+sudo rm -rf ~/.bash_aliases
+ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
+
 pip3 install neovim
 rm -rf ~/.vimrc
 ln -s ~/dotfiles/vimrc ~/.vimrc
