@@ -88,6 +88,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap () ()
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap [ []<ESC>i
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+
+inoremap '' ''
+inoremap ' ''<ESC>i
+inoremap "" ""
+inoremap " ""<ESC>i
+inoremap < <><ESC>i
+
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 set completeopt=menuone,noinsert
 inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
