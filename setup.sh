@@ -32,5 +32,8 @@ mv ~/nerdtree ~/.vim/pack/plugins/start
 git clone git@github.com:tpope/vim-commentary.git
 mv ~/vim-commentary ~/.vim/pack/plugins/start
 
+git clone https://github.com/Yggdroot/indentLine.git ~/.vim/pack/vendor/start/indentLine
+vim -u NONE -c "helptags  ~/.vim/pack/vendor/start/indentLine/doc" -c "q"
+
 ln -s ~/dotfiles/powerline-shell ~/.config/powerline-shell
 

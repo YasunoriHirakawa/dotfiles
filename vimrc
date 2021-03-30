@@ -89,18 +89,17 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap {<Enter> {<CR>}<ESC><S-o>
 inoremap () ()
 inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap (<Enter> (<CR>)<ESC><S-o>
 inoremap [ []<ESC>i
-inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap [<Enter> [<CR>]<ESC><S-o>
 
 inoremap '' ''
 inoremap ' ''<ESC>i
 inoremap "" ""
 inoremap " ""<ESC>i
-inoremap < <><ESC>i
 
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 set completeopt=menuone,noinsert
@@ -118,6 +117,7 @@ let g:lightline={
             \'colorscheme':'wombat'
             \}
 
-"molokai
+"color
 colorscheme molokai
 set t_Co=256
+hi MatchParen cterm=none ctermbg=none ctermfg=blue
