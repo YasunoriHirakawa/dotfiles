@@ -87,6 +87,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap sh :tab terminal<CR>
+nnoremap <C-t> :tabe .<CR>
 
 inoremap { {}<Left>
 inoremap {<Enter> {<CR>}<ESC><S-o>
