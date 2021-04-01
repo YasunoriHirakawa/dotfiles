@@ -58,6 +58,8 @@ set smartindent
 set showmatch
 set backspace=indent,eol,start
 set virtualedit=onemore
+set conceallevel=0
+let g:vim_json_syntax_conceal=0
 if has('vim_starting')
     let &t_SI .= "\e[6 q"
     let &t_EI .= "\e[2 q"
@@ -95,13 +97,17 @@ inoremap {<Enter> {<CR>}<ESC><S-o>
 inoremap () ()
 inoremap ( ()<ESC>i
 inoremap (<Enter> (<CR>)<ESC><S-o>
+inoremap (jj (<ESC>
 inoremap [ []<ESC>i
 inoremap [<Enter> [<CR>]<ESC><S-o>
-
+inoremap [] []
+inoremap [jj [<ESC>
 inoremap '' ''
 inoremap ' ''<ESC>i
+inoremap 'jj '<ESC>
 inoremap "" ""
 inoremap " ""<ESC>i
+inoremap "jj "<ESC>
 
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 set completeopt=menuone,noinsert
