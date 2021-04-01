@@ -58,8 +58,6 @@ set smartindent
 set showmatch
 set backspace=indent,eol,start
 set virtualedit=onemore
-set conceallevel=0
-let g:vim_json_syntax_conceal=0
 if has('vim_starting')
     let &t_SI .= "\e[6 q"
     let &t_EI .= "\e[2 q"
@@ -129,3 +127,7 @@ let g:lightline={
 colorscheme molokai
 set t_Co=256
 hi MatchParen cterm=none ctermbg=none ctermfg=blue
+
+"indentLine
+let g:indentLine_char = '│' "use ¦, ┆ or │
+autocmd BufNewFile,BufRead *.json let g:indentLine_setConceal = 0
