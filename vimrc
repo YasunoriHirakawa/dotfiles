@@ -129,5 +129,5 @@ set t_Co=256
 hi MatchParen cterm=none ctermbg=none ctermfg=blue
 
 "indentLine
-let g:indentLine_char = '│' "use ¦, ┆ or │
+let g:indentLine_char = '┆' "use ¦, ┆ or │
 autocmd BufNewFile,BufRead *.json let g:indentLine_setConceal = 0

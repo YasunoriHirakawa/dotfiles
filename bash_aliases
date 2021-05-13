@@ -3,6 +3,7 @@ alias pip="pip3"
 alias scl="screen -list"
 alias scr="screen -r"
 alias scs="screen -S"
+alias rsync="rsync -avzhP"
 
 function fpush()
 {
