@@ -11,6 +11,9 @@ pip3 install neovim
 rm -rf ~/.vimrc
 ln -s ~/dotfiles/vimrc ~/.vimrc
 
+rm -rf ~/.tmux.conf
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+
 rm -rf ~/.vim
 mkdir -p ~/.vim/pack/plugins/start
 
