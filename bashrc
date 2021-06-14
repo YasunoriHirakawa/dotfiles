@@ -139,3 +139,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
 fi
+
+# tmux
+if [ $SHLVL = 1 ]; then
+    /bin/tmux a -t main
+    tmux_return=$?
+    if [ $tmux_return = 1 ]; then
+        /bin/tmux new-session -s main
+    fi
+fi
