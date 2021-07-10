@@ -5,6 +5,11 @@ alias scr="screen -r"
 alias scs="screen -S"
 alias rsync="rsync -avzhP"
 
+function ch()
+{
+    cd ~/$1
+}
+
 function fpush()
 {
     git add -A && git commit -m "$1" && git push

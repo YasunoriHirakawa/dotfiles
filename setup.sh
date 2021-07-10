@@ -1,6 +1,9 @@
 rm -rf ~/.bashrc
 ln -s ~/dotfiles/bashrc ~/.bashrc
 
+rm -rf ~/.zshrc
+ln -s ~/dotfiles/zshrc ~/.zshrc
+
 sudo rm -rf /etc/inputrc
 sudo ln -s ~/dotfiles/inputrc /etc/inputrc
 
