@@ -131,3 +131,6 @@ hi MatchParen cterm=none ctermbg=none ctermfg=blue
 "indentLine
 let g:indentLine_char = '┆' "use ¦, ┆ or │
 autocmd BufNewFile,BufRead *.json let g:indentLine_setConceal = 0
+
+"syntax
+autocmd BufNewFile,BufRead *.launch set filetype=xml
