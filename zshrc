@@ -111,7 +111,7 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load --verbose
+zplug load --verbose > /dev/null
 
 # zsh options
 bindkey -e
@@ -170,10 +170,10 @@ if [ "$TERM" != "linux" ]; then
 fi
 
 # ros setup
-source /opt/ros/noetic/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
 export ROS_WORKSPACE=~/catkin_ws
 export ROS_PACKAGE_PATH=~/catkin_ws/src:$ROS_PACKAGE_PATH
+source /opt/ros/noetic/setup.zsh
+source ~/catkin_ws/devel/setup.zsh
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"

@@ -5,6 +5,11 @@ alias scr="screen -r"
 alias scs="screen -S"
 alias rsync="rsync -avzhP"
 
+function copy()
+{
+    echo $1 | xsel --clipboard --input
+}
+
 function ch()
 {
     cd ~/$1
