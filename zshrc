@@ -9,8 +9,9 @@ esac
 HISTCONTROL=ignoreboth
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -125,7 +126,6 @@ setopt pushd_ignore_dups
 setopt no_flow_control
 setopt extended_glob
 setopt auto_cd
-# setopt xtrace
 setopt no_beep
 setopt auto_param_keys
 setopt notify
@@ -139,6 +139,12 @@ setopt noautoremoveslash
 setopt list_packed
 setopt list_types
 setopt magic_equal_subst
+setopt hist_ignore_all_dups
+setopt hist_verify
+setopt hist_reduce_blanks
+setopt hist_no_store
+setopt share_history
+setopt extended_history
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
