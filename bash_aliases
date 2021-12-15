@@ -1,6 +1,6 @@
 alias python="python3"
 alias pip="pip3"
-alias history="history -iD 1"
+alias history="history -iD 1 | less"
 alias scl="screen -list"
 alias scr="screen -r"
 alias scs="screen -S"

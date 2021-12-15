@@ -11,7 +11,7 @@ HISTCONTROL=ignoreboth
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
-export HISTFILESIZE=10000
+export SAVEHIST=1000000
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -139,12 +139,13 @@ setopt noautoremoveslash
 setopt list_packed
 setopt list_types
 setopt magic_equal_subst
+setopt append_history
+setopt extended_history
+setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_verify
 setopt hist_reduce_blanks
 setopt hist_no_store
-setopt share_history
-setopt extended_history
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
