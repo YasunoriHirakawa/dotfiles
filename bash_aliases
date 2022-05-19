@@ -5,10 +5,12 @@ alias scl="screen -list"
 alias scr="screen -r"
 alias scs="screen -S"
 alias rsync="rsync -avzhP"
-alias rviz="/home/amsl/scripts/rviz.sh"
+# alias rviz="/home/amsl/scripts/rviz.sh"
 alias rdp="source /home/amsl/scripts/rdp.sh &&"
 alias x11="source /home/amsl/scripts/x11.sh &&"
 alias sa="ssh chopper"
+alias refresh="source /home/amsl/.zshrc"
+alias cbt="catkin build --this && refresh"
 
 function copy()
 {

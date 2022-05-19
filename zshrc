@@ -194,6 +194,8 @@ if [ $SHLVL = 1 ]; then
     /bin/tmux a -t main
     tmux_return=$?
     if [ $tmux_return = 1 ]; then
-        /bin/tmux new-session -s main
+        /bin/tmux \
+            new-session -s main \; \
+            new-session -s roscore -d "roscore"
     fi
 fi
