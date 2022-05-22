@@ -14,7 +14,7 @@ alias cbt="catkin build --this && refresh"
 
 function copy()
 {
-    echo $1 | xsel --clipboard --input
+    xsel --clipboard --input
 }
 
 function ch()
