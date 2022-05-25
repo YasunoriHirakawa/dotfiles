@@ -1,4 +1,4 @@
-"deoplete
+"plugins
 if has("python3")
     if &compatible
         set nocompatible
@@ -10,13 +10,12 @@ if has("python3")
         call dein#begin('~/.cache/dein')
 
         call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-        call dein#add('Shougo/deoplete.nvim')
+        call dein#add('prabirshrestha/vim-lsp')
+        call dein#add('mattn/vim-lsp-settings')
+        call dein#add('prabirshrestha/asyncomplete.vim')
+        call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 
-        if !has('nvim')
-          call dein#add('roxma/nvim-yarp')
-          call dein#add('roxma/vim-hug-neovim-rpc')
-        endif
-
+        " call map(dein#check_clean(), "delete(v:val, 'rf')")
         call dein#end()
         call dein#save_state()
     endif
@@ -32,7 +31,7 @@ else
     syntax enable
 endif
 
-"setting
+"basic settings
 set fenc=utf-8
 set noswapfile
 set autoread
@@ -58,6 +57,7 @@ set smartindent
 set showmatch
 set backspace=indent,eol,start
 set virtualedit=onemore
+set nospell
 if has('vim_starting')
     let &t_SI .= "\e[6 q"
     let &t_EI .= "\e[2 q"
@@ -108,15 +108,16 @@ inoremap " ""<ESC>i
 inoremap "jj "<ESC>
 
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
-set completeopt=menuone,noinsert
 inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
 inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
 "nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-"deoplete
-let g:deoplete#enable_at_startup=1
+"asyncomplete
+let g:asyncomplete_auto_completeopt = 0
+set completeopt=menuone,noinsert,noselect,preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "lightline
 let g:lightline={
