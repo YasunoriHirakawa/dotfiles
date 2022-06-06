@@ -116,8 +116,11 @@ map <C-n> :NERDTreeToggle<CR>
 
 "asyncomplete
 let g:asyncomplete_auto_completeopt = 0
+let g:lsp_diagnostics_echo_cursor = 1
 set completeopt=menuone,noinsert,noselect,preview
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" inoremap <Nul> :lspHover
+imap <Nul> <Plug>(asyncomplete_force_refresh)
 
 "lightline
 let g:lightline={
