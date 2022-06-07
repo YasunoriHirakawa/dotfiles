@@ -5,19 +5,18 @@ alias scl="screen -list"
 alias scr="screen -r"
 alias scs="screen -S"
 alias rsync="rsync -avzhP"
-# alias rviz="/home/amsl/scripts/rviz.sh"
 alias rdp="source /home/amsl/scripts/rdp.sh &&"
 alias x11="source /home/amsl/scripts/x11.sh &&"
 alias sa="ssh chopper"
 alias refresh="source /home/amsl/.zshrc"
-alias cbt="catkin build --this && refresh"
+alias cbt="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1 && refresh"
 
 function copy()
 {
     xsel --clipboard --input
 }
 
-function ch()
+function cdh()
 {
     cd ~/$1
 }
@@ -36,6 +35,12 @@ function de()
     proc=$(ps aux | grep "[a]msl@$pts" | awk '{print $2}')
     echo "Killing $pts: $proc"
     kill -KILL $proc
+}
+
+function rosccc()
+{
+    roscd $1
+    ln -s ../../build/$1/compile_commands.json
 }
 
 # dont activate me!!!!
