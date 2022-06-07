@@ -39,8 +39,15 @@ function de()
 
 function rosccc()
 {
-    roscd $1
-    ln -s ../../build/$1/compile_commands.json
+    while : ; do
+        ls CMakeLists.txt &> /dev/null
+        if [ $? -eq 0 ]; then
+            break
+        fi
+        cd ../
+    done
+    packname=$(basename $(pwd))
+    ln -s ../../build/$packname/compile_commands.json
 }
 
 # dont activate me!!!!
