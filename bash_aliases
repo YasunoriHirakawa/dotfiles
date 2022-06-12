@@ -10,6 +10,7 @@ alias x11="source /home/amsl/scripts/x11.sh &&"
 alias sa="ssh chopper"
 alias refresh="source /home/amsl/.zshrc"
 alias cbt="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+alias cbtd="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug"
 
 function copy()
 {
