@@ -138,3 +138,8 @@ autocmd BufNewFile,BufRead *.json let g:indentLine_setConceal = 0
 
 "syntax
 autocmd BufNewFile,BufRead *.launch set filetype=xml
+
+"debug
+packadd termdebug
+set mouse=a
+let g:termdebug_wide = 100

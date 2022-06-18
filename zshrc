@@ -207,3 +207,6 @@ BUFFER=$(\history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="Histor
 }
 zle -N select-history
 bindkey '^r' select-history
+
+# set vim as default editor
+export EDITOR=vim
