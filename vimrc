@@ -119,7 +119,7 @@ let g:asyncomplete_auto_completeopt = 0
 let g:lsp_diagnostics_echo_cursor = 1
 set completeopt=menuone,noinsert,noselect,preview
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-" inoremap <Nul> :lspHover
+nnoremap <C-i> :LspHover<CR>
 imap <Nul> <Plug>(asyncomplete_force_refresh)
 
 "lightline
@@ -130,7 +130,7 @@ let g:lightline={
 "color
 colorscheme molokai
 set t_Co=256
-hi MatchParen cterm=none ctermbg=none ctermfg=blue
+hi MatchParen cterm=bold ctermbg=none ctermfg=27
 hi Visual ctermbg=53
 
 "indentLine
