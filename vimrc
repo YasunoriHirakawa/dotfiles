@@ -131,6 +131,7 @@ let g:lightline={
 colorscheme molokai
 set t_Co=256
 hi MatchParen cterm=none ctermbg=none ctermfg=blue
+hi Visual ctermbg=53
 
 "indentLine
 let g:indentLine_char = '┆' "use ¦, ┆ or │
@@ -142,4 +143,4 @@ autocmd BufNewFile,BufRead *.launch set filetype=xml
 "debug
 packadd termdebug
 set mouse=a
-let g:termdebug_wide = 100
+let g:termdebug_wide = 1
