@@ -7,7 +7,6 @@ alias scs="screen -S"
 alias rsync="rsync -avzhP"
 alias rdp="source /home/amsl/scripts/rdp.sh &&"
 alias x11="source /home/amsl/scripts/x11.sh &&"
-alias sa="ssh chopper"
 alias refresh="source /home/amsl/.zshrc"
 alias cbt="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 alias cbtd="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug"
@@ -22,21 +21,30 @@ function cdh()
     cd ~/$1
 }
 
+function easync()
+{
+    case $1 in
+        -f | --from)
+            real=$(realpath $3)
+            rsync $2:$real/ $real/
+            ;;
+        -t | --to)
+            real=$(realpath $3)
+            rsync $real/ $2:$real/
+            ;;
+        *)
+            echo "Arguments:"
+            echo "--from | -f   Sync directory from remote"
+            echo "--to | -t   Sync directory to remote"
+            ;;
+    esac
+}
+
 function fpush()
 {
     git add -A && git commit -m "$1" && git push
 }
 
-function de()
-{
-    pts=$(w | grep "/bin/tmux new-session -s main" | awk '{print $2}')
-    if [ -z "$pts" ]; then
-        pts=$(w | grep "/bin/tmux a -t main" | awk '{print $2}')
-    fi
-    proc=$(ps aux | grep "[a]msl@$pts" | awk '{print $2}')
-    echo "Killing $pts: $proc"
-    kill -KILL $proc
-}
 
 function rosccc()
 {
