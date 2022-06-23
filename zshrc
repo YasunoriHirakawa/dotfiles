@@ -115,7 +115,24 @@ fi
 zplug load --verbose > /dev/null
 
 # zsh options
-bindkey -e
+bindkey -v
+bindkey "jj" vi-cmd-mode
+bindkey "^U" backward-kill-line
+bindkey -M viins '\er' history-incremental-pattern-search-forward
+bindkey -M viins '^?'  backward-delete-char
+bindkey -M viins '^A'  beginning-of-line
+bindkey -M viins '^B'  backward-char
+bindkey -M viins '^D'  delete-char-or-list
+bindkey -M viins '^E'  end-of-line
+bindkey -M viins '^F'  forward-char
+bindkey -M viins '^G'  send-break
+bindkey -M viins '^H'  backward-delete-char
+bindkey -M viins '^K'  kill-line
+bindkey -M viins '^N'  down-line-or-history
+bindkey -M viins '^P'  up-line-or-history
+bindkey -M viins '^U'  backward-kill-line
+bindkey -M viins '^W'  backward-kill-word
+bindkey -M viins '^Y'  yank
 
 autoload -Uz compinit && compinit
 autoload -Uz colors ; colors
@@ -177,26 +194,23 @@ if [ "$TERM" != "linux" ]; then
 fi
 
 # ros setup
-export ROS_WORKSPACE=~/catkin_ws
-export ROS_PACKAGE_PATH=~/catkin_ws/src:$ROS_PACKAGE_PATH
-source /opt/ros/noetic/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
-
-# pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+if ls /opt/ros/noetic &> /dev/null; then
+    export ROS_WORKSPACE=~/catkin_ws
+    export ROS_PACKAGE_PATH=~/catkin_ws/src:$ROS_PACKAGE_PATH
+    source /opt/ros/noetic/setup.zsh
+    source ~/catkin_ws/devel/setup.zsh
 fi
 
 # tmux
-if [ $SHLVL = 1 ]; then
-    /bin/tmux a -t main
-    tmux_return=$?
-    if [ $tmux_return = 1 ]; then
-        /bin/tmux \
-            new-session -s main \; \
-            new-session -s roscore -d "roscore"
+if ls /bin/tmux &> /dev/null; then
+    if [ $SHLVL = 1 ]; then
+        /bin/tmux a -t main
+        tmux_return=$?
+        if [ $tmux_return = 1 ]; then
+            /bin/tmux \
+                new-session -s main \; \
+                new-session -s roscore -d "roscore"
+        fi
     fi
 fi
 
@@ -207,6 +221,27 @@ BUFFER=$(\history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="Histor
 }
 zle -N select-history
 bindkey '^r' select-history
+bindkey -M viins '^R' select-history
 
 # set vim as default editor
 export EDITOR=vim
+
+# change cursor depends on input mode
+function zle-keymap-select {
+if [[ ${KEYMAP} == vicmd ]] ||
+    [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+
+elif [[ ${KEYMAP} == main ]] ||
+    [[ ${KEYMAP} == viins ]] ||
+    [[ ${KEYMAP} = '' ]] ||
+    [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+fi
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
