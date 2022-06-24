@@ -91,7 +91,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-#zsh plugins
+# zsh plugins
 if [[ ! -d ~/.zplug ]];then
     git clone https://github.com/zplug/zplug ~/.zplug
 fi
@@ -189,6 +189,9 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" ]; then
      install_powerline_precmd
 fi
+
+# neovim setup
+export XDG_CONFIG_HOME=~/.config
 
 # ros setup
 if ls /opt/ros/noetic &> /dev/null; then

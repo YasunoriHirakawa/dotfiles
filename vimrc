@@ -8,14 +8,19 @@ if has("python3")
 
     if dein#load_state('~/.cache/dein')
         call dein#begin('~/.cache/dein')
-
         call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-        call dein#add('prabirshrestha/vim-lsp')
-        call dein#add('mattn/vim-lsp-settings')
-        call dein#add('prabirshrestha/asyncomplete.vim')
-        call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 
-        " call map(dein#check_clean(), "delete(v:val, 'rf')")
+        "call dein#add('tomasr/molokai')
+        "call dein#add('itchyny/lightline.vim')
+        "call dein#add('preservim/nerdtree')
+        "call dein#add('prabirshrestha/asyncomplete.vim')
+        "call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+        "call dein#add('prabirshrestha/vim-lsp')
+        "call dein#add('mattn/vim-lsp-settings')
+        "call dein#add('tpope/vim-commentary')
+        "call dein#add('Yggdroot/indentLine')
+
+        call map(dein#check_clean(), "delete(v:val, 'rf')")
         call dein#end()
         call dein#save_state()
     endif
@@ -130,7 +135,7 @@ let g:lightline={
             \}
 
 "color
-colorscheme molokai
+"colorscheme molokai
 set t_Co=256
 hi MatchParen cterm=bold ctermbg=none ctermfg=27
 hi Visual ctermbg=53
