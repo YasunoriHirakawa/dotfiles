@@ -135,7 +135,7 @@ let g:lightline={
             \}
 
 "color
-"colorscheme molokai
+colorscheme molokai
 set t_Co=256
 hi MatchParen cterm=bold ctermbg=none ctermfg=27
 hi Visual ctermbg=53
