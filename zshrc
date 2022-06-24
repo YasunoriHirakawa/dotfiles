@@ -224,7 +224,7 @@ bindkey '^r' select-history
 bindkey -M viins '^R' select-history
 
 # set vim as default editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # change cursor depends on input mode
 function zle-keymap-select {

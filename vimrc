@@ -8,21 +8,20 @@ if has("python3")
 
     if dein#load_state('~/.cache/dein')
         call dein#begin('~/.cache/dein')
+
         call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+        call dein#add('prabirshrestha/asyncomplete.vim')
+        call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+        call dein#add('Yggdroot/indentLine')
+        call dein#add('itchyny/lightline.vim')
+        call dein#add('tomasr/molokai')
+        call dein#add('preservim/nerdtree')
+        call dein#add('nvim-treesitter/nvim-treesitter', { 'merged': 0 })
+        call dein#add('tpope/vim-commentary')
+        call dein#add('prabirshrestha/vim-lsp')
+        call dein#add('mattn/vim-lsp-settings')
 
-        "call dein#add('tomasr/molokai')
-        "call dein#add('itchyny/lightline.vim')
-        "call dein#add('preservim/nerdtree')
-        "call dein#add('prabirshrestha/asyncomplete.vim')
-        "call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-        "call dein#add('prabirshrestha/vim-lsp')
-        "call dein#add('mattn/vim-lsp-settings')
-        "call dein#add('tpope/vim-commentary')
-        "call dein#add('Yggdroot/indentLine')
-
-        call map(dein#check_clean(), "delete(v:val, 'rf')")
         call dein#end()
-        call dein#save_state()
     endif
 
     filetype plugin indent on
@@ -118,8 +117,13 @@ inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
 inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
-"nerdtree
-map <C-n> :NERDTreeToggle<CR>
+"syntax
+autocmd BufNewFile,BufRead *.launch set filetype=xml
+
+"debug
+packadd termdebug
+set mouse=a
+let g:termdebug_wide = 1
 
 "asyncomplete
 let g:asyncomplete_auto_completeopt = 0
@@ -128,6 +132,10 @@ set completeopt=menuone,noinsert,noselect,preview
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 nnoremap <C-i> :LspHover<CR>
 imap <Nul> <Plug>(asyncomplete_force_refresh)
+
+"indentLine
+let g:indentLine_char = '┆' "use ¦, ┆ or │
+autocmd BufNewFile,BufRead *.json let g:indentLine_setConceal = 0
 
 "lightline
 let g:lightline={
@@ -140,14 +148,18 @@ set t_Co=256
 hi MatchParen cterm=bold ctermbg=none ctermfg=27
 hi Visual ctermbg=53
 
-"indentLine
-let g:indentLine_char = '┆' "use ¦, ┆ or │
-autocmd BufNewFile,BufRead *.json let g:indentLine_setConceal = 0
+"nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
-"syntax
-autocmd BufNewFile,BufRead *.launch set filetype=xml
-
-"debug
-packadd termdebug
-set mouse=a
-let g:termdebug_wide = 1
+"treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,  -- syntax highlightを有効にする
+    disable = {     -- 一部の言語では無効にする
+    }
+  },
+  ensure_installed = 'all', -- :TSInstall allと同じ
+  -- ensure_installed = 'maintained' とすることもできる
+}
+EOF
