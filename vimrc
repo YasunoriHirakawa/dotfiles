@@ -131,7 +131,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 set completeopt=menuone,noinsert,noselect,preview
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 nnoremap <C-i> :LspHover<CR>
-imap <Nul> <Plug>(asyncomplete_force_refresh)
+imap <C-Space> <Plug>(asyncomplete_force_refresh)
 
 "indentLine
 let g:indentLine_char = '┆' "use ¦, ┆ or │
