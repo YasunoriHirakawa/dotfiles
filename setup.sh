@@ -10,6 +10,9 @@ fi
 if ! echo $SHELL | grep zsh &> /dev/null; then
     sudo chsh $USER -s $(which zsh)
 fi
+if ! which fzf &> /dev/null; then
+    sudo apt install fzf
+fi
 
 if ls -l /usr/bin/vim | grep /etc/alternatives/vim.tiny &> /dev/null; then
     sudo apt install vim
