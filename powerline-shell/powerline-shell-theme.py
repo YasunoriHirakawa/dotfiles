@@ -16,7 +16,7 @@ class DefaultColor(object):
     HOSTNAME_BG = 27
 
     HOME_SPECIAL_DISPLAY = True
-    HOME_BG = 31
+    HOME_BG = 33
     HOME_FG = 15
     PATH_BG = 237
     PATH_FG = 153
