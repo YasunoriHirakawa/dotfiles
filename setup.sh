@@ -37,9 +37,6 @@ rm -rf ~/installer.sh
 rm -rf ~/.zshrc
 ln -s ~/dotfiles/zshrc ~/.zshrc
 
-sudo rm -rf /etc/inputrc
-sudo ln -s ~/dotfiles/inputrc /etc/inputrc
-
 rm -rf ~/.bash_aliases
 ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 
