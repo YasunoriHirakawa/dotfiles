@@ -85,7 +85,6 @@ set wildmenu
 set wrapscan
 
 "mapping
-inoremap <silent> jj <ESC>
 nnoremap <silent><ESC><ESC> :<C-u>set nohlsearch!<CR>
 nnoremap j gj
 nnoremap k gk
@@ -96,6 +95,7 @@ nnoremap <C-l> <C-w>l
 nnoremap sh :tab terminal<CR>
 nnoremap <C-t> :tabe .<CR>
 
+inoremap <silent> jj <ESC>
 inoremap { {}<Left>
 inoremap {<Enter> {<CR>}<ESC><S-o>
 inoremap () ()

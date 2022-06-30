@@ -28,9 +28,11 @@ if ! pip list | grep pynvim &> /dev/null; then
     pip install pynvim
 fi
 
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
-bash ~/installer.sh ~/.cache/dein
-rm -rf ~/installer.sh
+if ! ls ~/.cache/dein &> /dev/null; then
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
+    bash ~/installer.sh ~/.cache/dein
+    rm -rf ~/installer.sh
+fi
 
 # Link setting files
 
@@ -48,6 +50,9 @@ ln -s ~/dotfiles/vimrc ~/.vimrc
 
 rm -rf ~/.tmux.conf
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+
+rm -rf ~/.config/pycodestyle
+ln -s ~/dotfiles/linter/pycodestyle ~/.config/pycodestyle
 
 # Install and setup powerline-shell
 
