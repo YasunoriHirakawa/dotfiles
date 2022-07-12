@@ -58,7 +58,7 @@ function rosccc()
         cd ../
     done
     packname=$(basename $(pwd))
-    ln -s ../../build/$packname/compile_commands.json
+    ln -s ~/catkin_ws/build/$packname/compile_commands.json
 }
 
 # dont activate me!!!!
