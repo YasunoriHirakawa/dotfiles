@@ -42,6 +42,17 @@ function easync()
     esac
 }
 
+function rosync()
+{
+    easync -t $1 /home/${USER}/catkin_ws/src/$2
+    easync -t $1 /home/${USER}/catkin_ws/build/$2
+    easync -t $1 /home/${USER}/catkin_ws/devel/lib/$2
+    if ls /home/${USER}/catkin_ws/devel/include/$2 &> /dev/null; then
+        easync -t $1 /home/${USER}/catkin_ws/devel/include/$2
+    fi
+    easync -t $1 /home/${USER}/catkin_ws/devel/share/$2
+}
+
 function fpush()
 {
     git add -A && git commit -m "$1" && git push
