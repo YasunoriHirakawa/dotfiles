@@ -1,6 +1,7 @@
 alias cat="batcat"
 alias cbt="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 alias cbtd="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug"
+alias gnome-session-restart="gnome-session-quit && gnome-session"
 alias history="history -iD 1 | less"
 alias refresh="source /home/${USER}/.zshrc"
 alias rdp="source /home/${USER}/scripts/rdp.sh &&"
