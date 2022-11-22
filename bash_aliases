@@ -1,10 +1,10 @@
 alias cat="batcat"
 alias cbt="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 alias cbtd="catkin build --this --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug"
+alias disp="export $(tmux show-environment | grep DISPLAY)"
 alias gnome-session-restart="gnome-session-quit && gnome-session"
 alias history="history -iD 1 | less"
 alias refresh="source /home/${USER}/.zshrc"
-alias rdp="source /home/${USER}/scripts/rdp.sh &&"
 alias rp="rosparam set use_sim_time true; rosbag play -l --clock"
 alias rsync="rsync -avzhP"
 alias scl="screen -list"
@@ -14,7 +14,6 @@ alias pip="pip3"
 alias python="python3"
 alias vi="nvim"
 alias vim="nvim"
-alias x11="source /home/${USER}/scripts/x11.sh &&"
 
 function copy()
 {
