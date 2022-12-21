@@ -95,7 +95,7 @@ nnoremap <C-l> <C-w>l
 nnoremap sh :tab terminal<CR>
 nnoremap <C-t> :tabe .<CR>
 
-inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC><Right>
 inoremap { {}<Left>
 inoremap {<Enter> {<CR>}<ESC><S-o>
 inoremap () ()
